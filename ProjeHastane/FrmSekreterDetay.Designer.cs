@@ -84,12 +84,12 @@
             this.groupBox1.Size = new System.Drawing.Size(330, 158);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Sekreter Bilgi";
+            this.groupBox1.Text = "Secretary Info";
             // 
             // LblAdSoyad
             // 
             this.LblAdSoyad.AutoSize = true;
-            this.LblAdSoyad.Location = new System.Drawing.Point(120, 100);
+            this.LblAdSoyad.Location = new System.Drawing.Point(182, 100);
             this.LblAdSoyad.Name = "LblAdSoyad";
             this.LblAdSoyad.Size = new System.Drawing.Size(93, 28);
             this.LblAdSoyad.TabIndex = 18;
@@ -100,14 +100,14 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 100);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 28);
+            this.label3.Size = new System.Drawing.Size(165, 28);
             this.label3.TabIndex = 17;
-            this.label3.Text = "Ad Soyad:";
+            this.label3.Text = "Name Surname:";
             // 
             // LblTC
             // 
             this.LblTC.AutoSize = true;
-            this.LblTC.Location = new System.Drawing.Point(120, 55);
+            this.LblTC.Location = new System.Drawing.Point(182, 55);
             this.LblTC.Name = "LblTC";
             this.LblTC.Size = new System.Drawing.Size(144, 28);
             this.LblTC.TabIndex = 16;
@@ -118,9 +118,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(32, 55);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 28);
+            this.label4.Size = new System.Drawing.Size(77, 28);
             this.label4.TabIndex = 15;
-            this.label4.Text = "TC NO:";
+            this.label4.Text = "TC No:";
             // 
             // groupBox2
             // 
@@ -131,7 +131,7 @@
             this.groupBox2.Size = new System.Drawing.Size(330, 359);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Duyuru Oluştur";
+            this.groupBox2.Text = "Create Notification";
             // 
             // BtnDuyuruOlustur
             // 
@@ -139,7 +139,7 @@
             this.BtnDuyuruOlustur.Name = "BtnDuyuruOlustur";
             this.BtnDuyuruOlustur.Size = new System.Drawing.Size(318, 50);
             this.BtnDuyuruOlustur.TabIndex = 1;
-            this.BtnDuyuruOlustur.Text = "Oluştur";
+            this.BtnDuyuruOlustur.Text = "Create";
             this.BtnDuyuruOlustur.UseVisualStyleBackColor = true;
             this.BtnDuyuruOlustur.Click += new System.EventHandler(this.BtnDuyuruOlustur_Click);
             // 
@@ -172,7 +172,7 @@
             this.groupBox3.Size = new System.Drawing.Size(320, 535);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Randevu Paneli";
+            this.groupBox3.Text = "Appointment Panel";
             // 
             // BntKaydet
             // 
@@ -180,7 +180,7 @@
             this.BntKaydet.Name = "BntKaydet";
             this.BntKaydet.Size = new System.Drawing.Size(199, 50);
             this.BntKaydet.TabIndex = 46;
-            this.BntKaydet.Text = "Kaydet";
+            this.BntKaydet.Text = "Save";
             this.BntKaydet.UseVisualStyleBackColor = true;
             this.BntKaydet.Click += new System.EventHandler(this.BntKaydet_Click);
             // 
@@ -189,9 +189,9 @@
             this.ChkDurum.AutoSize = true;
             this.ChkDurum.Location = new System.Drawing.Point(102, 308);
             this.ChkDurum.Name = "ChkDurum";
-            this.ChkDurum.Size = new System.Drawing.Size(100, 32);
+            this.ChkDurum.Size = new System.Drawing.Size(85, 32);
             this.ChkDurum.TabIndex = 45;
-            this.ChkDurum.Text = "Durum";
+            this.ChkDurum.Text = "State";
             this.ChkDurum.UseVisualStyleBackColor = true;
             // 
             // MskTC
@@ -252,36 +252,36 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(11, 222);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 28);
+            this.label6.Size = new System.Drawing.Size(83, 28);
             this.label6.TabIndex = 37;
-            this.label6.Text = "Doktor:";
+            this.label6.Text = "Doctor:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(24, 180);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 28);
+            this.label1.Size = new System.Drawing.Size(85, 28);
             this.label1.TabIndex = 31;
-            this.label1.Text = "Branş:";
+            this.label1.Text = "Branch:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(35, 130);
+            this.label2.Location = new System.Drawing.Point(29, 141);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 28);
+            this.label2.Size = new System.Drawing.Size(66, 28);
             this.label2.TabIndex = 29;
-            this.label2.Text = "Saat:";
+            this.label2.Text = "Time:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(31, 97);
+            this.label7.Location = new System.Drawing.Point(34, 105);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 28);
+            this.label7.Size = new System.Drawing.Size(63, 28);
             this.label7.TabIndex = 28;
-            this.label7.Text = "Tarih:";
+            this.label7.Text = "Date:";
             // 
             // Txtid
             // 
@@ -293,11 +293,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(61, 55);
+            this.label8.Location = new System.Drawing.Point(59, 58);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 28);
+            this.label8.Size = new System.Drawing.Size(36, 28);
             this.label8.TabIndex = 26;
-            this.label8.Text = "id:";
+            this.label8.Text = "Id:";
             // 
             // groupBox4
             // 
@@ -307,7 +307,7 @@
             this.groupBox4.Size = new System.Drawing.Size(654, 357);
             this.groupBox4.TabIndex = 48;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Branşlar";
+            this.groupBox4.Text = "Branches";
             // 
             // dataGridView1
             // 
@@ -329,7 +329,7 @@
             this.groupBox5.Size = new System.Drawing.Size(654, 308);
             this.groupBox5.TabIndex = 49;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Doktorlar";
+            this.groupBox5.Text = "Doctors";
             // 
             // dataGridView2
             // 
@@ -353,49 +353,49 @@
             this.groupBox6.Size = new System.Drawing.Size(654, 130);
             this.groupBox6.TabIndex = 50;
             this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Hızlı Erişim";
+            this.groupBox6.Text = "Fast Access";
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(483, 47);
+            this.button1.Location = new System.Drawing.Point(497, 47);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(149, 50);
             this.button1.TabIndex = 51;
-            this.button1.Text = "Duyurular";
+            this.button1.Text = "Notifications";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BtnListe
             // 
             this.BtnListe.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnListe.Location = new System.Drawing.Point(328, 47);
+            this.BtnListe.Location = new System.Drawing.Point(319, 47);
             this.BtnListe.Name = "BtnListe";
-            this.BtnListe.Size = new System.Drawing.Size(149, 50);
+            this.BtnListe.Size = new System.Drawing.Size(172, 50);
             this.BtnListe.TabIndex = 50;
-            this.BtnListe.Text = "Randevu Listesi";
+            this.BtnListe.Text = "Appointment List";
             this.BtnListe.UseVisualStyleBackColor = true;
             this.BtnListe.Click += new System.EventHandler(this.BtnListe_Click);
             // 
             // BtnBransPanel
             // 
             this.BtnBransPanel.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBransPanel.Location = new System.Drawing.Point(173, 47);
+            this.BtnBransPanel.Location = new System.Drawing.Point(164, 47);
             this.BtnBransPanel.Name = "BtnBransPanel";
             this.BtnBransPanel.Size = new System.Drawing.Size(149, 50);
             this.BtnBransPanel.TabIndex = 49;
-            this.BtnBransPanel.Text = "Branş Paneli";
+            this.BtnBransPanel.Text = "Branch Panel";
             this.BtnBransPanel.UseVisualStyleBackColor = true;
             this.BtnBransPanel.Click += new System.EventHandler(this.BtnBransPanel_Click);
             // 
             // BtnDoktorPanel
             // 
             this.BtnDoktorPanel.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDoktorPanel.Location = new System.Drawing.Point(18, 47);
+            this.BtnDoktorPanel.Location = new System.Drawing.Point(5, 47);
             this.BtnDoktorPanel.Name = "BtnDoktorPanel";
             this.BtnDoktorPanel.Size = new System.Drawing.Size(149, 50);
             this.BtnDoktorPanel.TabIndex = 48;
-            this.BtnDoktorPanel.Text = "Doktor Paneli";
+            this.BtnDoktorPanel.Text = "Doctor Panel";
             this.BtnDoktorPanel.UseVisualStyleBackColor = true;
             this.BtnDoktorPanel.Click += new System.EventHandler(this.BtnDoktorPanel_Click);
             // 

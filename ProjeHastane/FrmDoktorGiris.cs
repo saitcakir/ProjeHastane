@@ -22,7 +22,7 @@ namespace ProjeHastane
         sqlbaglantisi bgl = new sqlbaglantisi();
         private void BtnGirisYap_Click(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand("Select * from Tbl_Doktorlar where DoktorTC=@p1 and DoktorSifre=@p2", bgl.baglanti());
+            SqlCommand komut = new SqlCommand("Select * from Tbl_Doctor where DoctorTC=@p1 and DoctorPassword=@p2", bgl.baglanti());
             komut.Parameters.AddWithValue("@p1", MskTC.Text);
             komut.Parameters.AddWithValue("@p2", TxtSifre.Text);
             SqlDataReader dr = komut.ExecuteReader();
@@ -35,15 +35,12 @@ namespace ProjeHastane
             }
             else
             {
-                MessageBox.Show("Hatalı kullanıcı adı veya şifre");
+                MessageBox.Show("Wrong Password or Name");
             }
             bgl.baglanti().Close();
         }
 
-        private void FrmDoktorGiris_Load(object sender, EventArgs e)
-        {
-
-        }
+    
 
         private void FrmDoktorGiris_FormClosing(object sender, FormClosingEventArgs e)
         {

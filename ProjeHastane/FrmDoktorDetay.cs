@@ -25,7 +25,7 @@ namespace ProjeHastane
         {
             LblTC.Text = TC;
             //Doktor Ad Soyad
-            SqlCommand komut = new SqlCommand("Select DoktorAd,DoktorSoyad from Tbl_Doktorlar where DoktorTC=@p1", bgl.baglanti());
+            SqlCommand komut = new SqlCommand("Select DoctorName,DoctorSurname from Tbl_Doctor where DoctorTC=@p1", bgl.baglanti());
             komut.Parameters.AddWithValue("@p1", LblTC.Text);
             komut.ExecuteNonQuery();
             SqlDataReader dr = komut.ExecuteReader();
@@ -37,7 +37,7 @@ namespace ProjeHastane
 
             //Randevu Listesi
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from Tbl_Randevular where RandevuDoktor='"+LblAdSoyad.Text +"'",bgl.baglanti());
+            SqlDataAdapter da = new SqlDataAdapter("Select * from Tbl_Appointment where AppointmentDoctor='" + LblAdSoyad.Text +"'",bgl.baglanti());
             da.Fill(dt);
             dataGridView1.DataSource = dt;
         }

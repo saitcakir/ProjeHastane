@@ -49,6 +49,10 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.CmbCity = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.CmbHospital = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -68,12 +72,12 @@
             this.groupBox1.Size = new System.Drawing.Size(437, 224);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Kişi Bilgi";
+            this.groupBox1.Text = "Patient Info";
             // 
             // LblAdSoyad
             // 
             this.LblAdSoyad.AutoSize = true;
-            this.LblAdSoyad.Location = new System.Drawing.Point(120, 127);
+            this.LblAdSoyad.Location = new System.Drawing.Point(183, 127);
             this.LblAdSoyad.Name = "LblAdSoyad";
             this.LblAdSoyad.Size = new System.Drawing.Size(93, 28);
             this.LblAdSoyad.TabIndex = 14;
@@ -84,14 +88,14 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 127);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 28);
+            this.label2.Size = new System.Drawing.Size(165, 28);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Ad Soyad:";
+            this.label2.Text = "Name Surname:";
             // 
             // LblTC
             // 
             this.LblTC.AutoSize = true;
-            this.LblTC.Location = new System.Drawing.Point(120, 82);
+            this.LblTC.Location = new System.Drawing.Point(186, 82);
             this.LblTC.Name = "LblTC";
             this.LblTC.Size = new System.Drawing.Size(144, 28);
             this.LblTC.TabIndex = 11;
@@ -100,7 +104,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 82);
+            this.label3.Location = new System.Drawing.Point(89, 82);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 28);
             this.label3.TabIndex = 10;
@@ -108,6 +112,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.CmbHospital);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.CmbCity);
+            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.Txtid);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.LnkBilgiDuzenle);
@@ -120,7 +128,7 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Location = new System.Drawing.Point(12, 272);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(437, 370);
+            this.groupBox2.Size = new System.Drawing.Size(437, 473);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Randevu Paneli:";
@@ -136,45 +144,45 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(79, 57);
+            this.label1.Location = new System.Drawing.Point(83, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 28);
+            this.label1.Size = new System.Drawing.Size(36, 28);
             this.label1.TabIndex = 19;
-            this.label1.Text = "id:";
+            this.label1.Text = "Id:";
             // 
             // LnkBilgiDuzenle
             // 
-            this.LnkBilgiDuzenle.Location = new System.Drawing.Point(6, 333);
+            this.LnkBilgiDuzenle.Location = new System.Drawing.Point(6, 417);
             this.LnkBilgiDuzenle.Name = "LnkBilgiDuzenle";
             this.LnkBilgiDuzenle.Size = new System.Drawing.Size(211, 28);
             this.LnkBilgiDuzenle.TabIndex = 0;
             this.LnkBilgiDuzenle.TabStop = true;
-            this.LnkBilgiDuzenle.Text = "Bilgilerini Düzenle";
+            this.LnkBilgiDuzenle.Text = "Edit Info";
             this.LnkBilgiDuzenle.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LnkBilgiDuzenle_LinkClicked);
             // 
             // BtnRandevu
             // 
-            this.BtnRandevu.Location = new System.Drawing.Point(125, 285);
+            this.BtnRandevu.Location = new System.Drawing.Point(125, 369);
             this.BtnRandevu.Name = "BtnRandevu";
             this.BtnRandevu.Size = new System.Drawing.Size(260, 44);
             this.BtnRandevu.TabIndex = 18;
-            this.BtnRandevu.Text = "Randevu Al";
+            this.BtnRandevu.Text = "Take Appointment";
             this.BtnRandevu.UseVisualStyleBackColor = true;
             this.BtnRandevu.Click += new System.EventHandler(this.BtnRandevu_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 183);
+            this.label5.Location = new System.Drawing.Point(6, 267);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 28);
+            this.label5.Size = new System.Drawing.Size(116, 28);
             this.label5.TabIndex = 18;
-            this.label5.Text = "Şikayet:";
+            this.label5.Text = "Complaint:";
             // 
             // CmbDoktor
             // 
             this.CmbDoktor.FormattingEnabled = true;
-            this.CmbDoktor.Location = new System.Drawing.Point(125, 141);
+            this.CmbDoktor.Location = new System.Drawing.Point(125, 225);
             this.CmbDoktor.Name = "CmbDoktor";
             this.CmbDoktor.Size = new System.Drawing.Size(260, 36);
             this.CmbDoktor.TabIndex = 16;
@@ -182,7 +190,7 @@
             // 
             // RchSikayet
             // 
-            this.RchSikayet.Location = new System.Drawing.Point(125, 183);
+            this.RchSikayet.Location = new System.Drawing.Point(125, 267);
             this.RchSikayet.Name = "RchSikayet";
             this.RchSikayet.Size = new System.Drawing.Size(260, 96);
             this.RchSikayet.TabIndex = 17;
@@ -191,7 +199,7 @@
             // CmbBrans
             // 
             this.CmbBrans.FormattingEnabled = true;
-            this.CmbBrans.Location = new System.Drawing.Point(125, 99);
+            this.CmbBrans.Location = new System.Drawing.Point(125, 183);
             this.CmbBrans.Name = "CmbBrans";
             this.CmbBrans.Size = new System.Drawing.Size(260, 36);
             this.CmbBrans.TabIndex = 15;
@@ -200,20 +208,20 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(30, 141);
+            this.label6.Location = new System.Drawing.Point(36, 225);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 28);
+            this.label6.Size = new System.Drawing.Size(83, 28);
             this.label6.TabIndex = 13;
-            this.label6.Text = "Doktor:";
+            this.label6.Text = "Doctor:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(42, 102);
+            this.label8.Location = new System.Drawing.Point(34, 183);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 28);
+            this.label8.Size = new System.Drawing.Size(85, 28);
             this.label8.TabIndex = 10;
-            this.label8.Text = "Branş:";
+            this.label8.Text = "Branch:";
             // 
             // groupBox3
             // 
@@ -223,7 +231,7 @@
             this.groupBox3.Size = new System.Drawing.Size(849, 296);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Randevu Geçmişi";
+            this.groupBox3.Text = "Appointment History";
             // 
             // dataGridView1
             // 
@@ -241,10 +249,10 @@
             this.groupBox4.Controls.Add(this.dataGridView2);
             this.groupBox4.Location = new System.Drawing.Point(455, 324);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(849, 318);
+            this.groupBox4.Size = new System.Drawing.Size(849, 421);
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Aktif Randevular";
+            this.groupBox4.Text = "Active Appointments";
             // 
             // dataGridView2
             // 
@@ -254,9 +262,45 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(843, 283);
+            this.dataGridView2.Size = new System.Drawing.Size(843, 386);
             this.dataGridView2.TabIndex = 16;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            // 
+            // CmbCity
+            // 
+            this.CmbCity.FormattingEnabled = true;
+            this.CmbCity.Location = new System.Drawing.Point(125, 99);
+            this.CmbCity.Name = "CmbCity";
+            this.CmbCity.Size = new System.Drawing.Size(260, 36);
+            this.CmbCity.TabIndex = 22;
+            this.CmbCity.SelectedIndexChanged += new System.EventHandler(this.CmbCity_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(63, 99);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 28);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "City:";
+            // 
+            // CmbHospital
+            // 
+            this.CmbHospital.FormattingEnabled = true;
+            this.CmbHospital.Location = new System.Drawing.Point(125, 141);
+            this.CmbHospital.Name = "CmbHospital";
+            this.CmbHospital.Size = new System.Drawing.Size(260, 36);
+            this.CmbHospital.TabIndex = 24;
+            this.CmbHospital.SelectedIndexChanged += new System.EventHandler(this.CmbHospital_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(24, 141);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(95, 28);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Hospital:";
             // 
             // FrmHastaDetay
             // 
@@ -264,7 +308,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.CadetBlue;
-            this.ClientSize = new System.Drawing.Size(1342, 716);
+            this.ClientSize = new System.Drawing.Size(1342, 774);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -274,7 +318,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "FrmHastaDetay";
-            this.Text = "Hasta Detay";
+            this.Text = "Patient Details";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmHastaDetay_FormClosing);
             this.Load += new System.EventHandler(this.FrmHastaDetay_Load);
             this.groupBox1.ResumeLayout(false);
@@ -311,5 +355,9 @@
         private System.Windows.Forms.LinkLabel LnkBilgiDuzenle;
         private System.Windows.Forms.TextBox Txtid;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox CmbHospital;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox CmbCity;
+        private System.Windows.Forms.Label label4;
     }
 }

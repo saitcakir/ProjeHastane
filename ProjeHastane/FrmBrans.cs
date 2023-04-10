@@ -22,7 +22,7 @@ namespace ProjeHastane
         private void FrmBrans_Load(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from Tbl_Branslar", bgl.baglanti());
+            SqlDataAdapter da = new SqlDataAdapter("Select * from Tbl_Branch", bgl.baglanti());
             da.Fill(dt);
             dataGridView1.DataSource = dt;
 
@@ -30,20 +30,20 @@ namespace ProjeHastane
 
         private void BtnEkle_Click(object sender, EventArgs e)
         {
-            SqlCommand komut=new    SqlCommand("insert into Tbl_Branslar (BransAd) values(@b1)",bgl.baglanti());
+            SqlCommand komut=new    SqlCommand("insert into Tbl_Branch (BranchName) values(@b1)", bgl.baglanti());
             komut.Parameters.AddWithValue("@b1",TxtBrans.Text);
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
-            MessageBox.Show("Branş Eklendi.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("Branch is added.", "Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         private void BtnSil_Click(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand("delete from Tbl_Branslar where Bransid=@b1", bgl.baglanti());
+            SqlCommand komut = new SqlCommand("delete from Tbl_Branch where Branchid=@b1", bgl.baglanti());
             komut.Parameters.AddWithValue("@b1", Txtid.Text);
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
-            MessageBox.Show("Branş Silindi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            MessageBox.Show("Branch is deleted.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -55,12 +55,12 @@ namespace ProjeHastane
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand("Update Tbl_Branslar set BransAd=@p1 where Bransid=@p2", bgl.baglanti());
+            SqlCommand komut = new SqlCommand("Update Tbl_Branch set BranchName=@p1 where Branchid=@p2", bgl.baglanti());
             komut.Parameters.AddWithValue("@p1",TxtBrans.Text);
             komut.Parameters.AddWithValue("@p2",Txtid.Text);
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
-            MessageBox.Show("Branş güncellendi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Branch is updated.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

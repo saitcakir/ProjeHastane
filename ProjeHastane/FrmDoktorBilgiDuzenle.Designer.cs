@@ -52,11 +52,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(86, 180);
+            this.label5.Location = new System.Drawing.Point(43, 180);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 28);
+            this.label5.Size = new System.Drawing.Size(108, 28);
             this.label5.TabIndex = 44;
-            this.label5.Text = "Şifre:";
+            this.label5.Text = "Password:";
             // 
             // TxtSifre
             // 
@@ -67,6 +67,7 @@
             // 
             // MskTC
             // 
+            this.MskTC.Enabled = false;
             this.MskTC.Location = new System.Drawing.Point(154, 96);
             this.MskTC.Name = "MskTC";
             this.MskTC.Size = new System.Drawing.Size(170, 36);
@@ -75,20 +76,20 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 96);
+            this.label4.Location = new System.Drawing.Point(71, 96);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(141, 28);
+            this.label4.Size = new System.Drawing.Size(77, 28);
             this.label4.TabIndex = 39;
-            this.label4.Text = "TC Kimlik No:";
+            this.label4.Text = "TC No:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(71, 54);
+            this.label3.Location = new System.Drawing.Point(47, 54);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 28);
+            this.label3.Size = new System.Drawing.Size(104, 28);
             this.label3.TabIndex = 38;
-            this.label3.Text = "Soyad:";
+            this.label3.Text = "Surname:";
             // 
             // TxtAd
             // 
@@ -100,27 +101,24 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(103, 12);
+            this.label2.Location = new System.Drawing.Point(76, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 28);
+            this.label2.Size = new System.Drawing.Size(75, 28);
             this.label2.TabIndex = 36;
-            this.label2.Text = "Ad:";
+            this.label2.Text = "Name:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(76, 138);
+            this.label6.Location = new System.Drawing.Point(63, 138);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 28);
+            this.label6.Size = new System.Drawing.Size(85, 28);
             this.label6.TabIndex = 47;
-            this.label6.Text = "Branş:";
+            this.label6.Text = "Branch:";
             // 
             // CmbBrans
             // 
             this.CmbBrans.FormattingEnabled = true;
-            this.CmbBrans.Items.AddRange(new object[] {
-            "Kadın",
-            "Erkek"});
             this.CmbBrans.Location = new System.Drawing.Point(154, 138);
             this.CmbBrans.Name = "CmbBrans";
             this.CmbBrans.Size = new System.Drawing.Size(170, 36);
@@ -133,7 +131,7 @@
             this.BtnBilgiGuncelle.Name = "BtnBilgiGuncelle";
             this.BtnBilgiGuncelle.Size = new System.Drawing.Size(170, 35);
             this.BtnBilgiGuncelle.TabIndex = 48;
-            this.BtnBilgiGuncelle.Text = "Güncelle";
+            this.BtnBilgiGuncelle.Text = "Update";
             this.BtnBilgiGuncelle.UseVisualStyleBackColor = false;
             this.BtnBilgiGuncelle.Click += new System.EventHandler(this.BtnBilgiGuncelle_Click);
             // 
@@ -160,7 +158,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "FrmDoktorBilgiDuzenle";
-            this.Text = "Doktor Bilgi Duzenle";
+            this.Text = "Doctor Info Update";
             this.Load += new System.EventHandler(this.FrmDoktorBilgiDuzenle_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

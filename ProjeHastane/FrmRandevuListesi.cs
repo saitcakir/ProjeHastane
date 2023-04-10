@@ -23,7 +23,7 @@ namespace ProjeHastane
         private void FrmRandevuListesi_Load(object sender, EventArgs e)
         {
             DataTable dt=new DataTable();
-            SqlDataAdapter da=new SqlDataAdapter("select * from Tbl_Randevular",bgl.baglanti());
+            SqlDataAdapter da=new SqlDataAdapter("select * from Tbl_Appointment", bgl.baglanti());
             da.Fill(dt);
             dataGridView1.DataSource = dt;
         }

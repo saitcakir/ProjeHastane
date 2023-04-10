@@ -44,6 +44,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1338, 643);
             this.dataGridView1.TabIndex = 0;
+            // 
             // FrmRandevuListesi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -54,7 +55,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmRandevuListesi";
-            this.Text = "Randevu Listesi";
+            this.Text = "Appointment List";
             this.Load += new System.EventHandler(this.FrmRandevuListesi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

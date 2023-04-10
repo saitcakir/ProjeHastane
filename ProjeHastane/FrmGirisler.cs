@@ -38,11 +38,6 @@ namespace ProjeHastane
             this.Hide();
         }
 
-        private void FrmGirisler_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void FrmGirisler_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)

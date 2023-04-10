@@ -43,33 +43,33 @@
             // BtnGuncelle
             // 
             this.BtnGuncelle.BackColor = System.Drawing.Color.Lime;
-            this.BtnGuncelle.Location = new System.Drawing.Point(113, 148);
+            this.BtnGuncelle.Location = new System.Drawing.Point(158, 148);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(170, 46);
             this.BtnGuncelle.TabIndex = 65;
-            this.BtnGuncelle.Text = "Güncelle";
+            this.BtnGuncelle.Text = "Update";
             this.BtnGuncelle.UseVisualStyleBackColor = false;
             this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
             // 
             // BtnSil
             // 
             this.BtnSil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.BtnSil.Location = new System.Drawing.Point(201, 96);
+            this.BtnSil.Location = new System.Drawing.Point(246, 96);
             this.BtnSil.Name = "BtnSil";
             this.BtnSil.Size = new System.Drawing.Size(82, 46);
             this.BtnSil.TabIndex = 64;
-            this.BtnSil.Text = "Sil";
+            this.BtnSil.Text = "Delete";
             this.BtnSil.UseVisualStyleBackColor = false;
             this.BtnSil.Click += new System.EventHandler(this.BtnSil_Click);
             // 
             // BtnEkle
             // 
             this.BtnEkle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.BtnEkle.Location = new System.Drawing.Point(113, 96);
+            this.BtnEkle.Location = new System.Drawing.Point(158, 96);
             this.BtnEkle.Name = "BtnEkle";
             this.BtnEkle.Size = new System.Drawing.Size(82, 46);
             this.BtnEkle.TabIndex = 63;
-            this.BtnEkle.Text = "Ekle";
+            this.BtnEkle.Text = "Add";
             this.BtnEkle.UseVisualStyleBackColor = false;
             this.BtnEkle.Click += new System.EventHandler(this.BtnEkle_Click);
             // 
@@ -77,7 +77,7 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(307, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(336, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -88,15 +88,15 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 54);
+            this.label2.Location = new System.Drawing.Point(5, 54);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 28);
+            this.label2.Size = new System.Drawing.Size(147, 28);
             this.label2.TabIndex = 59;
-            this.label2.Text = "Brans Ad:";
+            this.label2.Text = "Branch Name:";
             // 
             // TxtBrans
             // 
-            this.TxtBrans.Location = new System.Drawing.Point(113, 54);
+            this.TxtBrans.Location = new System.Drawing.Point(158, 54);
             this.TxtBrans.Name = "TxtBrans";
             this.TxtBrans.Size = new System.Drawing.Size(170, 36);
             this.TxtBrans.TabIndex = 58;
@@ -104,15 +104,15 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 9);
+            this.label5.Location = new System.Drawing.Point(45, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 28);
+            this.label5.Size = new System.Drawing.Size(107, 28);
             this.label5.TabIndex = 53;
-            this.label5.Text = "Brans id:";
+            this.label5.Text = "Branch id:";
             // 
             // Txtid
             // 
-            this.Txtid.Location = new System.Drawing.Point(113, 12);
+            this.Txtid.Location = new System.Drawing.Point(158, 12);
             this.Txtid.Name = "Txtid";
             this.Txtid.Size = new System.Drawing.Size(170, 36);
             this.Txtid.TabIndex = 52;
@@ -123,7 +123,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.CadetBlue;
-            this.ClientSize = new System.Drawing.Size(817, 217);
+            this.ClientSize = new System.Drawing.Size(843, 393);
             this.Controls.Add(this.BtnGuncelle);
             this.Controls.Add(this.BtnSil);
             this.Controls.Add(this.BtnEkle);
@@ -137,7 +137,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "FrmBrans";
-            this.Text = "Branş Paneli";
+            this.Text = "Branch Panel";
             this.Load += new System.EventHandler(this.FrmBrans_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

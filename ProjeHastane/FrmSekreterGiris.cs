@@ -21,7 +21,7 @@ namespace ProjeHastane
 
         private void BtnGirisYap_Click(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand("Select * from Tbl_Sekreter where SekreterTC=@p1 and SekreterSifre=@p2", bgl.baglanti());
+            SqlCommand komut = new SqlCommand("Select * from Tbl_Secretary where SecretaryTC=@p1 and SecretaryPassword=@p2", bgl.baglanti());
             komut.Parameters.AddWithValue("@p1", MskTC.Text);
             komut.Parameters.AddWithValue("@p2", TxtSifre.Text);
             SqlDataReader dr = komut.ExecuteReader();
@@ -34,7 +34,7 @@ namespace ProjeHastane
             }
             else
             {
-                MessageBox.Show("Hatalı TC & Şifre");
+                MessageBox.Show("Wrong Name or Password");
             }
             bgl.baglanti().Close();
         }

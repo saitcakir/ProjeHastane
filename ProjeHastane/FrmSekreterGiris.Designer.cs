@@ -40,11 +40,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(124, 197);
+            this.label3.Location = new System.Drawing.Point(78, 200);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 28);
+            this.label3.Size = new System.Drawing.Size(108, 28);
             this.label3.TabIndex = 13;
-            this.label3.Text = "Şifre:";
+            this.label3.Text = "Password:";
             // 
             // BtnGirisYap
             // 
@@ -52,7 +52,7 @@
             this.BtnGirisYap.Name = "BtnGirisYap";
             this.BtnGirisYap.Size = new System.Drawing.Size(148, 50);
             this.BtnGirisYap.TabIndex = 12;
-            this.BtnGirisYap.Text = "Giriş Yap";
+            this.BtnGirisYap.Text = "Log In";
             this.BtnGirisYap.UseVisualStyleBackColor = true;
             this.BtnGirisYap.Click += new System.EventHandler(this.BtnGirisYap_Click);
             // 
@@ -61,10 +61,10 @@
             this.LnkUyeOl.AutoSize = true;
             this.LnkUyeOl.Location = new System.Drawing.Point(430, 205);
             this.LnkUyeOl.Name = "LnkUyeOl";
-            this.LnkUyeOl.Size = new System.Drawing.Size(75, 28);
+            this.LnkUyeOl.Size = new System.Drawing.Size(77, 28);
             this.LnkUyeOl.TabIndex = 11;
             this.LnkUyeOl.TabStop = true;
-            this.LnkUyeOl.Text = "Üye Ol";
+            this.LnkUyeOl.Text = "Sign In";
             // 
             // MskTC
             // 
@@ -88,11 +88,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 155);
+            this.label2.Location = new System.Drawing.Point(109, 163);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 28);
+            this.label2.Size = new System.Drawing.Size(77, 28);
             this.label2.TabIndex = 8;
-            this.label2.Text = "TC Kimlik No:";
+            this.label2.Text = "TC No:";
             // 
             // label1
             // 
@@ -100,9 +100,9 @@
             this.label1.Font = new System.Drawing.Font("Segoe Script", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(472, 67);
+            this.label1.Size = new System.Drawing.Size(491, 67);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Sekreter Giriş Paneli";
+            this.label1.Text = "Secretary Login Panel";
             // 
             // FrmSekreterGiris
             // 
@@ -123,7 +123,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "FrmSekreterGiris";
-            this.Text = "Sekreter Girişi";
+            this.Text = "Secretary Login";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmSekreterGiris_FormClosing);
             this.Load += new System.EventHandler(this.FrmSekreterGiris_Load);
             this.ResumeLayout(false);

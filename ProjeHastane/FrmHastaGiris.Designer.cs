@@ -44,18 +44,18 @@
             this.label1.Font = new System.Drawing.Font("Segoe Script", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(81, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(419, 67);
+            this.label1.Size = new System.Drawing.Size(460, 67);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Hasta Giriş Paneli";
+            this.label1.Text = "Patient Login Panel";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(89, 135);
+            this.label2.Location = new System.Drawing.Point(153, 135);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 28);
+            this.label2.Size = new System.Drawing.Size(77, 28);
             this.label2.TabIndex = 1;
-            this.label2.Text = "TC Kimlik No:";
+            this.label2.Text = "TC No:";
             // 
             // TxtSifre
             // 
@@ -79,10 +79,10 @@
             this.LnkUyeOl.AutoSize = true;
             this.LnkUyeOl.Location = new System.Drawing.Point(474, 185);
             this.LnkUyeOl.Name = "LnkUyeOl";
-            this.LnkUyeOl.Size = new System.Drawing.Size(75, 28);
+            this.LnkUyeOl.Size = new System.Drawing.Size(77, 28);
             this.LnkUyeOl.TabIndex = 4;
             this.LnkUyeOl.TabStop = true;
-            this.LnkUyeOl.Text = "Üye Ol";
+            this.LnkUyeOl.Text = "Sign In";
             this.LnkUyeOl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LnkUyeOl_LinkClicked);
             // 
             // BtnGirisYap
@@ -91,18 +91,18 @@
             this.BtnGirisYap.Name = "BtnGirisYap";
             this.BtnGirisYap.Size = new System.Drawing.Size(148, 50);
             this.BtnGirisYap.TabIndex = 5;
-            this.BtnGirisYap.Text = "Giriş Yap";
+            this.BtnGirisYap.Text = "Log In";
             this.BtnGirisYap.UseVisualStyleBackColor = true;
             this.BtnGirisYap.Click += new System.EventHandler(this.BtnGirisYap_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(168, 177);
+            this.label3.Location = new System.Drawing.Point(122, 177);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 28);
+            this.label3.Size = new System.Drawing.Size(108, 28);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Şifre:";
+            this.label3.Text = "Password:";
             // 
             // FrmHastaGiris
             // 
@@ -124,7 +124,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinimizeBox = false;
             this.Name = "FrmHastaGiris";
-            this.Text = "Hasta Girişi";
+            this.Text = "Patient Login";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmHastaGiris_FormClosing);
             this.Load += new System.EventHandler(this.FrmHastaGiris_Load);
             this.ResumeLayout(false);

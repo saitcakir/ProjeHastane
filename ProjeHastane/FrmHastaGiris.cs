@@ -26,7 +26,7 @@ namespace ProjeHastane
         sqlbaglantisi bgl = new sqlbaglantisi();
         private void BtnGirisYap_Click(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand("select * from Tbl_Hastalar where HastaTC=@p1 and HastaSifre=@p2", bgl.baglanti());
+            SqlCommand komut = new SqlCommand("select * from Tbl_Patient where PatientTC=@p1 and PatientPassword=@p2", bgl.baglanti());
             komut.Parameters.AddWithValue("@p1", MskTC.Text);
             komut.Parameters.AddWithValue("@p2", TxtSifre.Text);
             SqlDataReader dr = komut.ExecuteReader();

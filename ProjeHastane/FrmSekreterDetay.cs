@@ -23,7 +23,7 @@ namespace ProjeHastane
         {
             LblTC.Text = TCnumara;
             //Ad Soyad
-            SqlCommand komut1 = new SqlCommand("Select SekreterAdSoyad From Tbl_Sekreter where SekreterTC=@p1", bgl.baglanti());
+            SqlCommand komut1 = new SqlCommand("Select SecretaryNameSurname From Tbl_Secretary where SecretaryTC=@p1", bgl.baglanti());
             komut1.Parameters.AddWithValue("@p1", LblTC.Text);
             SqlDataReader dr1 = komut1.ExecuteReader();
             while (dr1.Read())
@@ -34,18 +34,18 @@ namespace ProjeHastane
 
             //Branşları DataGride Aktarma
             DataTable dt1 = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from Tbl_Branslar", bgl.baglanti());
+            SqlDataAdapter da = new SqlDataAdapter("Select * from Tbl_Branch", bgl.baglanti());
             da.Fill(dt1);
             dataGridView1.DataSource = dt1;
 
             //Doktorları Listeye Aktarma
             DataTable dt2 = new DataTable();
-            SqlDataAdapter da2 = new SqlDataAdapter("Select (DoktorAd + ' ' + DoktorSoyad) as 'Doktorlar', DoktorBrans from Tbl_Doktorlar", bgl.baglanti());
+            SqlDataAdapter da2 = new SqlDataAdapter("Select (DoctorName + ' ' + DoctorSurname) as 'Doctors', DoctorBranch from Tbl_Doctor", bgl.baglanti());
             da2.Fill(dt2);
             dataGridView2.DataSource = dt2;
 
             //Branşı comboboxa aktarma
-            SqlCommand komut2 = new SqlCommand("Select BransAd from Tbl_Branslar", bgl.baglanti());
+            SqlCommand komut2 = new SqlCommand("Select BranchName from Tbl_Branch", bgl.baglanti());
             SqlDataReader dr2 = komut2.ExecuteReader();
             while (dr2.Read())
             {
@@ -57,7 +57,7 @@ namespace ProjeHastane
 
         private void BntKaydet_Click(object sender, EventArgs e)
         {
-            SqlCommand komutkaydet = new SqlCommand("insert into Tbl_Randevular(RandevuTarih,RandevuSaat,RandevuBrans,RandevuDoktor) values (@r1,@r2,@r3,@r4)", bgl.baglanti());
+            SqlCommand komutkaydet = new SqlCommand("insert into Tbl_Appointment(AppointmentDate,AppointmentTime,AppointmentBranch,AppointmentDoctor) values (@r1,@r2,@r3,@r4)", bgl.baglanti());
             komutkaydet.Parameters.AddWithValue("@r1", MskTarih.Text);
             komutkaydet.Parameters.AddWithValue("@r2", MskSaat.Text);
             komutkaydet.Parameters.AddWithValue("@r3", CmbBrans.Text);
@@ -70,7 +70,7 @@ namespace ProjeHastane
         private void CmbBrans_SelectedIndexChanged(object sender, EventArgs e)
         {
             CmbDoktor.Items.Clear();
-            SqlCommand komut = new SqlCommand("Select (DoktorAd + ' ' + DoktorSoyad)  From Tbl_Doktorlar where DoktorBrans=@p1", bgl.baglanti());
+            SqlCommand komut = new SqlCommand("Select (DoctorName + ' ' + DoctorSurname)  From Tbl_Doctor where DoctorBranch=@p1", bgl.baglanti());
             komut.Parameters.AddWithValue("@p1", CmbBrans.Text);
             SqlDataReader dr = komut.ExecuteReader();
             while (dr.Read())
@@ -82,11 +82,11 @@ namespace ProjeHastane
 
         private void BtnDuyuruOlustur_Click(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand("Insert into Tbl_Duyurular (Duyuru) values(@d1)", bgl.baglanti());
+            SqlCommand komut = new SqlCommand("Insert into Tbl_Notification (Notification) values(@d1)", bgl.baglanti());
             komut.Parameters.AddWithValue("@d1", RclDuyuru.Text);
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
-            MessageBox.Show("Duyuru Oluşturuldu.");
+            MessageBox.Show("Notification is created.");
         }
 
         private void BtnDoktorPanel_Click(object sender, EventArgs e)

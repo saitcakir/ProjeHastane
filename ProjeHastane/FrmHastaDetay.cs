@@ -25,7 +25,7 @@ namespace ProjeHastane
             LblTC.Text = tc;
 
             //Ad Soyad Çekme
-            SqlCommand komut = new SqlCommand("Select HastaAd,HastaSoyad from Tbl_Hastalar where HastaTC=@p1", bgl.baglanti());
+            SqlCommand komut = new SqlCommand("Select PatientName,PatientSurname from Tbl_Patient where PatientTC=@p1", bgl.baglanti());
             komut.Parameters.AddWithValue("@p1", LblTC.Text);
             SqlDataReader dr = komut.ExecuteReader();
             while (dr.Read())
@@ -36,17 +36,17 @@ namespace ProjeHastane
 
             //Randevu Geçmiş
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from Tbl_Randevular where HastaTC=" + tc, bgl.baglanti());
+            SqlDataAdapter da = new SqlDataAdapter("Select * from Tbl_Appointment where PatientTC=" + tc, bgl.baglanti());
             da.Fill(dt);
             dataGridView1.DataSource = dt;
 
-            //Branşları Çekme
+            //Şehir Çekme
 
-            SqlCommand komut2 = new SqlCommand("Select BransAd from Tbl_Branslar", bgl.baglanti());
-            SqlDataReader dr2 = komut2.ExecuteReader();
-            while (dr2.Read())
+            SqlCommand komut4 = new SqlCommand("Select CityName from Tbl_City", bgl.baglanti());
+            SqlDataReader dr4 = komut4.ExecuteReader();
+            while (dr4.Read())
             {
-                CmbBrans.Items.Add(dr2[0]);
+                CmbCity.Items.Add(dr4[0]);
             }
             bgl.baglanti().Close();
         }
@@ -54,7 +54,7 @@ namespace ProjeHastane
         private void CmbBrans_SelectedIndexChanged(object sender, EventArgs e)
         {
             CmbDoktor.Items.Clear();
-            SqlCommand komut3 = new SqlCommand("Select DoktorAd,DoktorSoyad from Tbl_Doktorlar where DoktorBrans=@p1", bgl.baglanti());
+            SqlCommand komut3 = new SqlCommand("Select DoctorName,DoctorSurname from Tbl_Doctor where DoctorBranch=@p1", bgl.baglanti());
             komut3.Parameters.AddWithValue("@p1", CmbBrans.Text);
             SqlDataReader dr3 = komut3.ExecuteReader();
             while (dr3.Read())
@@ -67,7 +67,7 @@ namespace ProjeHastane
         private void CmbDoktor_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from Tbl_Randevular where RandevuBrans='" + CmbBrans.Text + "' AND RandevuDoktor='" + CmbDoktor.Text + "' and RandevuDurum=0", bgl.baglanti());
+            SqlDataAdapter da = new SqlDataAdapter("Select * from Tbl_Appointment where AppointmentBranch='" + CmbBrans.Text + "' AND AppointmentDoctor='" + CmbDoktor.Text + "' and AppointmentState=0", bgl.baglanti());
             da.Fill(dt);
             dataGridView2.DataSource = dt;
         }
@@ -88,7 +88,7 @@ namespace ProjeHastane
 
         private void BtnRandevu_Click(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand("update Tbl_Randevular set RandevuDurum=1,HastaTC=@p1,HastaSikayet=@p2 where Randevuid=@p3", bgl.baglanti());
+            SqlCommand komut = new SqlCommand("update Tbl_Appointment set AppointmentState=1,PatientTC=@p1,PatientComplaint=@p2 where Appointmentid=@p3", bgl.baglanti());
             komut.Parameters.AddWithValue("@p1", LblTC.Text);
             komut.Parameters.AddWithValue("@p2", RchSikayet.Text);
             komut.Parameters.AddWithValue("@p3", Txtid.Text);
@@ -117,6 +117,33 @@ namespace ProjeHastane
             {
                 e.Cancel = true;
             }
+
+        }
+
+        private void CmbCity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CmbHospital.Items.Clear();
+            SqlCommand komut3 = new SqlCommand("Select HospitalName from Tbl_Hospital where CityName=@p1", bgl.baglanti());
+            komut3.Parameters.AddWithValue("@p1", CmbCity.Text);
+            SqlDataReader dr3 = komut3.ExecuteReader();
+            while (dr3.Read())
+            {
+                CmbHospital.Items.Add(dr3[0]);
+            }
+            bgl.baglanti().Close();
+
+        }
+
+        private void CmbHospital_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CmbBrans.Items.Clear();
+            SqlCommand komut2 = new SqlCommand("Select BranchName from Tbl_Branch", bgl.baglanti());
+            SqlDataReader dr2 = komut2.ExecuteReader();
+            while (dr2.Read())
+            {
+                CmbBrans.Items.Add(dr2[0]);
+            }
+            bgl.baglanti().Close();
 
         }
     }

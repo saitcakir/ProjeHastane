@@ -23,7 +23,18 @@ namespace ProjeHastane
         private void FrmDoktorBilgiDuzenle_Load(object sender, EventArgs e)
         {
             MskTC.Text = TCNO;
-            SqlCommand komut = new SqlCommand("Select * from Tbl_Doktorlar where DoktorTC=@p1", bgl.baglanti());
+
+            //Branşları Çekme
+
+            SqlCommand komut2 = new SqlCommand("Select BranchName from Tbl_Branch", bgl.baglanti());
+            SqlDataReader dr2 = komut2.ExecuteReader();
+            while (dr2.Read())
+            {
+                CmbBrans.Items.Add(dr2[0]);
+            }
+            bgl.baglanti().Close();
+
+            SqlCommand komut = new SqlCommand("Select * from Tbl_Doctor where DoctorTC=@p1", bgl.baglanti());
             komut.Parameters.AddWithValue("@p1", MskTC.Text);
             SqlDataReader dr = komut.ExecuteReader();
             while (dr.Read())
@@ -38,7 +49,7 @@ namespace ProjeHastane
 
         private void BtnBilgiGuncelle_Click(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand("Update Tbl_Doktorlar set DoktorAd=@p1,DoktorSoyad=@p2,DoktorBrans=@p3,DoktorSifre=@p4 where DoktorTC=@p5", bgl.baglanti());
+            SqlCommand komut = new SqlCommand("Update Tbl_Doctor set DoctorName=@p1,DoctorSurname=@p2,DoctorBranch=@p3,DoctorPassword=@p4 where DoctorTC=@p5", bgl.baglanti());
             komut.Parameters.AddWithValue("@p1",TxtAd.Text);
             komut.Parameters.AddWithValue("@p2",TxtSoyad.Text);
             komut.Parameters.AddWithValue("@p3",CmbBrans.Text);
@@ -46,7 +57,7 @@ namespace ProjeHastane
             komut.Parameters.AddWithValue("@p5",MskTC.Text);
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
-            MessageBox.Show("Kayıt güncellendi.");
+            MessageBox.Show("Info Updated.");
         }
     }
 }
