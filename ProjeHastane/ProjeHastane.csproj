@@ -75,7 +75,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaglantiSinif.cs" />
     <Compile Include="FrmBilgiDuzenle.cs">
       <SubType>Form</SubType>
     </Compile>
