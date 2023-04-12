@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Reflection.Emit;
 
 
 namespace ProjeHastane
 {
     public partial class FrmDoktorDetay : Form
     {
+        private int TimerValue;
+        int MaxLimit = 180;
         public FrmDoktorDetay()
         {
             InitializeComponent();
@@ -23,6 +26,10 @@ namespace ProjeHastane
 
         private void FrmDoktorDetay_Load(object sender, EventArgs e)
         {
+            TimerValue = MaxLimit;
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+
             LblTC.Text = TC;
             //Doktor Ad Soyad
             SqlCommand komut = new SqlCommand("Select DoctorName,DoctorSurname from Tbl_Doctor where DoctorTC=@p1", bgl.baglanti());
@@ -44,14 +51,18 @@ namespace ProjeHastane
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
         {
-            FrmDoktorBilgiDuzenle fr= new FrmDoktorBilgiDuzenle();
+            TimerValue = MaxLimit;
+
+            FrmDoktorBilgiDuzenle fr = new FrmDoktorBilgiDuzenle();
             fr.TCNO = LblTC.Text;
             fr.Show();
         }
 
         private void BtnDuyurular_Click(object sender, EventArgs e)
         {
-            FrmDuyurular fr=new FrmDuyurular();
+            TimerValue = MaxLimit;
+
+            FrmDuyurular fr =new FrmDuyurular();
             fr.Show();
         }
 
@@ -62,12 +73,16 @@ namespace ProjeHastane
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            TimerValue = MaxLimit;
+
             int secilen = dataGridView1.SelectedCells[0].RowIndex;
             RchSikayet.Text = dataGridView1.Rows[secilen].Cells[7].Value.ToString();
         }
 
         private void FrmDoktorDetay_FormClosing(object sender, FormClosingEventArgs e)
         {
+            TimerValue = MaxLimit;
+
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 DialogResult result = MessageBox.Show("Do you really want to exit?", "Dialog Title", MessageBoxButtons.YesNo);
@@ -85,6 +100,18 @@ namespace ProjeHastane
             else
             {
                 e.Cancel = true;
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            TimerValue--;
+            label1.Text = TimerValue.ToString();
+            if (TimerValue == 0)
+            {
+                this.Hide();
+                FrmDoktorGiris frm = new FrmDoktorGiris();
+                frm.Show();
             }
         }
     }

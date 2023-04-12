@@ -13,6 +13,8 @@ namespace ProjeHastane
 {
     public partial class FrmHastaDetay : Form
     {
+        private int TimerValue;
+        int MaxLimit = 180;
         public FrmHastaDetay()
         {
             InitializeComponent();
@@ -22,6 +24,10 @@ namespace ProjeHastane
         sqlbaglantisi bgl = new sqlbaglantisi();
         private void FrmHastaDetay_Load(object sender, EventArgs e)
         {
+            TimerValue = MaxLimit;
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+
             LblTC.Text = tc;
 
             //Ad Soyad Çekme
@@ -53,6 +59,7 @@ namespace ProjeHastane
 
         private void CmbBrans_SelectedIndexChanged(object sender, EventArgs e)
         {
+            TimerValue = MaxLimit;
             CmbDoktor.Items.Clear();
             SqlCommand komut3 = new SqlCommand("Select DoctorName,DoctorSurname from Tbl_Doctor where DoctorBranch=@p1", bgl.baglanti());
             komut3.Parameters.AddWithValue("@p1", CmbBrans.Text);
@@ -66,6 +73,8 @@ namespace ProjeHastane
 
         private void CmbDoktor_SelectedIndexChanged(object sender, EventArgs e)
         {
+            TimerValue = MaxLimit;
+
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("Select * from Tbl_Appointment where AppointmentBranch='" + CmbBrans.Text + "' AND AppointmentDoctor='" + CmbDoktor.Text + "' and AppointmentState=0", bgl.baglanti());
             da.Fill(dt);
@@ -74,6 +83,8 @@ namespace ProjeHastane
 
         private void LnkBilgiDuzenle_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            TimerValue = MaxLimit;
+
             FrmBilgiDuzenle fr = new FrmBilgiDuzenle();
             fr.TCno = LblTC.Text;
             fr.Show();
@@ -82,12 +93,16 @@ namespace ProjeHastane
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            TimerValue = 20;
+
             int secilen = dataGridView2.SelectedCells[0].RowIndex;
             Txtid.Text = dataGridView2.Rows[secilen].Cells[0].Value.ToString();
         }
 
         private void BtnRandevu_Click(object sender, EventArgs e)
         {
+            TimerValue = MaxLimit;
+
             SqlCommand komut = new SqlCommand("update Tbl_Appointment set AppointmentState=1,PatientTC=@p1,PatientComplaint=@p2 where Appointmentid=@p3", bgl.baglanti());
             komut.Parameters.AddWithValue("@p1", LblTC.Text);
             komut.Parameters.AddWithValue("@p2", RchSikayet.Text);
@@ -122,6 +137,8 @@ namespace ProjeHastane
 
         private void CmbCity_SelectedIndexChanged(object sender, EventArgs e)
         {
+            TimerValue = MaxLimit;
+
             CmbHospital.Items.Clear();
             SqlCommand komut3 = new SqlCommand("Select HospitalName from Tbl_Hospital where CityName=@p1", bgl.baglanti());
             komut3.Parameters.AddWithValue("@p1", CmbCity.Text);
@@ -136,6 +153,8 @@ namespace ProjeHastane
 
         private void CmbHospital_SelectedIndexChanged(object sender, EventArgs e)
         {
+            TimerValue = MaxLimit;
+
             CmbBrans.Items.Clear();
             SqlCommand komut2 = new SqlCommand("Select BranchName from Tbl_Branch", bgl.baglanti());
             SqlDataReader dr2 = komut2.ExecuteReader();
@@ -146,5 +165,18 @@ namespace ProjeHastane
             bgl.baglanti().Close();
 
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            TimerValue--;
+            label9.Text = TimerValue.ToString();
+            if (TimerValue==0)
+            {
+                this.Hide();
+                FrmHastaGiris frm = new FrmHastaGiris();
+                frm.Show();
+            }
+        }
+
     }
 }

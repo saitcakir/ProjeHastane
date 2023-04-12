@@ -13,6 +13,8 @@ namespace ProjeHastane
 {
     public partial class FrmSekreterDetay : Form
     {
+        private int TimerValue;
+        int MaxLimit = 180;
         public FrmSekreterDetay()
         {
             InitializeComponent();
@@ -21,6 +23,10 @@ namespace ProjeHastane
         sqlbaglantisi bgl = new sqlbaglantisi();
         private void FrmSekreterDetay_Load(object sender, EventArgs e)
         {
+            TimerValue = MaxLimit;
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+
             LblTC.Text = TCnumara;
             //Ad Soyad
             SqlCommand komut1 = new SqlCommand("Select SecretaryNameSurname From Tbl_Secretary where SecretaryTC=@p1", bgl.baglanti());
@@ -57,6 +63,8 @@ namespace ProjeHastane
 
         private void BntKaydet_Click(object sender, EventArgs e)
         {
+            TimerValue = MaxLimit;
+
             SqlCommand komutkaydet = new SqlCommand("insert into Tbl_Appointment(AppointmentDate,AppointmentTime,AppointmentBranch,AppointmentDoctor) values (@r1,@r2,@r3,@r4)", bgl.baglanti());
             komutkaydet.Parameters.AddWithValue("@r1", MskTarih.Text);
             komutkaydet.Parameters.AddWithValue("@r2", MskSaat.Text);
@@ -69,6 +77,8 @@ namespace ProjeHastane
 
         private void CmbBrans_SelectedIndexChanged(object sender, EventArgs e)
         {
+            TimerValue = MaxLimit;
+
             CmbDoktor.Items.Clear();
             SqlCommand komut = new SqlCommand("Select (DoctorName + ' ' + DoctorSurname)  From Tbl_Doctor where DoctorBranch=@p1", bgl.baglanti());
             komut.Parameters.AddWithValue("@p1", CmbBrans.Text);
@@ -82,6 +92,8 @@ namespace ProjeHastane
 
         private void BtnDuyuruOlustur_Click(object sender, EventArgs e)
         {
+            TimerValue = MaxLimit;
+
             SqlCommand komut = new SqlCommand("Insert into Tbl_Notification (Notification) values(@d1)", bgl.baglanti());
             komut.Parameters.AddWithValue("@d1", RclDuyuru.Text);
             komut.ExecuteNonQuery();
@@ -91,24 +103,32 @@ namespace ProjeHastane
 
         private void BtnDoktorPanel_Click(object sender, EventArgs e)
         {
+            TimerValue = MaxLimit;
+
             FrmDoktorPaneli drp = new FrmDoktorPaneli();
             drp.Show();
         }
 
         private void BtnBransPanel_Click(object sender, EventArgs e)
         {
+            TimerValue = MaxLimit;
+
             FrmBrans frb = new FrmBrans();
             frb.Show();
         }
 
         private void BtnListe_Click(object sender, EventArgs e)
         {
-            FrmRandevuListesi frl= new FrmRandevuListesi();
+            TimerValue = MaxLimit;
+
+            FrmRandevuListesi frl = new FrmRandevuListesi();
             frl.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            TimerValue = MaxLimit;
+
             FrmDuyurular frm = new FrmDuyurular();
             frm.Show();
         }
@@ -132,6 +152,18 @@ namespace ProjeHastane
             else
             {
                 e.Cancel = true;
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            TimerValue--;
+            label5.Text = TimerValue.ToString();
+            if (TimerValue == 0)
+            {
+                this.Hide();
+                FrmSekreterGiris frm = new FrmSekreterGiris();
+                frm.Show();
             }
         }
     }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHastaDetay));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.LblAdSoyad = new System.Windows.Forms.Label();
@@ -35,6 +36,11 @@
             this.LblTC = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.CmbHospital = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.CmbCity = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.Txtid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.LnkBilgiDuzenle = new System.Windows.Forms.LinkLabel();
@@ -49,10 +55,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.CmbCity = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.CmbHospital = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -112,6 +115,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.CmbHospital);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.CmbCity);
@@ -131,7 +135,52 @@
             this.groupBox2.Size = new System.Drawing.Size(437, 473);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Randevu Paneli:";
+            this.groupBox2.Text = "Appointment Panel:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(151, 431);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(101, 28);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "DENEME";
+            // 
+            // CmbHospital
+            // 
+            this.CmbHospital.FormattingEnabled = true;
+            this.CmbHospital.Location = new System.Drawing.Point(125, 141);
+            this.CmbHospital.Name = "CmbHospital";
+            this.CmbHospital.Size = new System.Drawing.Size(260, 36);
+            this.CmbHospital.TabIndex = 24;
+            this.CmbHospital.SelectedIndexChanged += new System.EventHandler(this.CmbHospital_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(24, 141);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(95, 28);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Hospital:";
+            // 
+            // CmbCity
+            // 
+            this.CmbCity.FormattingEnabled = true;
+            this.CmbCity.Location = new System.Drawing.Point(125, 99);
+            this.CmbCity.Name = "CmbCity";
+            this.CmbCity.Size = new System.Drawing.Size(260, 36);
+            this.CmbCity.TabIndex = 22;
+            this.CmbCity.SelectedIndexChanged += new System.EventHandler(this.CmbCity_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(63, 99);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 28);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "City:";
             // 
             // Txtid
             // 
@@ -266,41 +315,11 @@
             this.dataGridView2.TabIndex = 16;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
-            // CmbCity
+            // timer1
             // 
-            this.CmbCity.FormattingEnabled = true;
-            this.CmbCity.Location = new System.Drawing.Point(125, 99);
-            this.CmbCity.Name = "CmbCity";
-            this.CmbCity.Size = new System.Drawing.Size(260, 36);
-            this.CmbCity.TabIndex = 22;
-            this.CmbCity.SelectedIndexChanged += new System.EventHandler(this.CmbCity_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(63, 99);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 28);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "City:";
-            // 
-            // CmbHospital
-            // 
-            this.CmbHospital.FormattingEnabled = true;
-            this.CmbHospital.Location = new System.Drawing.Point(125, 141);
-            this.CmbHospital.Name = "CmbHospital";
-            this.CmbHospital.Size = new System.Drawing.Size(260, 36);
-            this.CmbHospital.TabIndex = 24;
-            this.CmbHospital.SelectedIndexChanged += new System.EventHandler(this.CmbHospital_SelectedIndexChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(24, 141);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(95, 28);
-            this.label7.TabIndex = 23;
-            this.label7.Text = "Hospital:";
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FrmHastaDetay
             // 
@@ -359,5 +378,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox CmbCity;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label9;
     }
 }
