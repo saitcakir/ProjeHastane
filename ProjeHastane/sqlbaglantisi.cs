@@ -10,7 +10,7 @@ namespace ProjeHastane
     internal class sqlbaglantisi
     {
 
-        BaglantiSinif dbcon=new BaglantiSinif();
+     //   BaglantiSinif dbcon=new BaglantiSinif();
 
         public SqlConnection baglanti()
         {
