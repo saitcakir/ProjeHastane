@@ -14,7 +14,7 @@ namespace ProjeHastane
 
         public SqlConnection baglanti()
         {
-            SqlConnection baglan = new SqlConnection(dbcon.Adres);
+            SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-SV40UOQ\\SQLEXPRESS;Initial Catalog=HastaneProje;Integrated Security=True");
             baglan.Open();
             return baglan;
         }
