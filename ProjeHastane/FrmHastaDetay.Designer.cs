@@ -163,6 +163,7 @@
             this.label7.Size = new System.Drawing.Size(95, 28);
             this.label7.TabIndex = 23;
             this.label7.Text = "Hospital:";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // CmbCity
             // 
@@ -181,6 +182,7 @@
             this.label4.Size = new System.Drawing.Size(56, 28);
             this.label4.TabIndex = 21;
             this.label4.Text = "City:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // Txtid
             // 

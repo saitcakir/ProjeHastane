@@ -38,6 +38,18 @@ namespace ProjeHastane
             }
             bgl.baglanti().Close();
 
+
+            //Şehir Çekme
+
+            SqlCommand komut4 = new SqlCommand("Select CityName from Tbl_City", bgl.baglanti());
+            SqlDataReader dr4 = komut4.ExecuteReader();
+            while (dr4.Read())
+            {
+                CmbCity.Items.Add(dr4[0]);
+            }
+            bgl.baglanti().Close();
+
+
             //Branşları DataGride Aktarma
             DataTable dt1 = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("Select * from Tbl_Branch", bgl.baglanti());
@@ -65,27 +77,28 @@ namespace ProjeHastane
         {
             TimerValue = MaxLimit;
 
-            SqlCommand komutkaydet = new SqlCommand("insert into Tbl_Appointment(AppointmentDate,AppointmentTime,AppointmentBranch,AppointmentDoctor) values (@r1,@r2,@r3,@r4)", bgl.baglanti());
+            SqlCommand komutkaydet = new SqlCommand("insert into Tbl_Appointment(AppointmentDate,AppointmentTime,AppointmentBranch,AppointmentDoctor,CityName,HospitalName) values (@r1,@r2,@r3,@r4,@r5,@r6)", bgl.baglanti());
             komutkaydet.Parameters.AddWithValue("@r1", MskTarih.Text);
             komutkaydet.Parameters.AddWithValue("@r2", MskSaat.Text);
             komutkaydet.Parameters.AddWithValue("@r3", CmbBrans.Text);
             komutkaydet.Parameters.AddWithValue("@r4", CmbDoktor.Text);
+            komutkaydet.Parameters.AddWithValue("@r5", CmbCity.Text);
+            komutkaydet.Parameters.AddWithValue("@r6", CmbHospital.Text);
             komutkaydet.ExecuteNonQuery();
             bgl.baglanti().Close();
-            MessageBox.Show("Randevu oluşturuldu");
+            MessageBox.Show("Appointment is Created");
         }
 
         private void CmbBrans_SelectedIndexChanged(object sender, EventArgs e)
         {
             TimerValue = MaxLimit;
-
             CmbDoktor.Items.Clear();
-            SqlCommand komut = new SqlCommand("Select (DoctorName + ' ' + DoctorSurname)  From Tbl_Doctor where DoctorBranch=@p1", bgl.baglanti());
-            komut.Parameters.AddWithValue("@p1", CmbBrans.Text);
-            SqlDataReader dr = komut.ExecuteReader();
-            while (dr.Read())
+            SqlCommand komut3 = new SqlCommand("Select DoctorName,DoctorSurname from Tbl_Doctor where DoctorBranch=@p1", bgl.baglanti());
+            komut3.Parameters.AddWithValue("@p1", CmbBrans.Text);
+            SqlDataReader dr3 = komut3.ExecuteReader();
+            while (dr3.Read())
             {
-                CmbDoktor.Items.Add(dr[0]);
+                CmbDoktor.Items.Add(dr3[0] + " " + dr3[1]);
             }
             bgl.baglanti().Close();
         }
@@ -165,6 +178,35 @@ namespace ProjeHastane
                 FrmSekreterGiris frm = new FrmSekreterGiris();
                 frm.Show();
             }
+        }
+
+        private void CmbCity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TimerValue = MaxLimit;
+
+            CmbHospital.Items.Clear();
+            SqlCommand komut3 = new SqlCommand("Select HospitalName from Tbl_Hospital where CityName=@p1", bgl.baglanti());
+            komut3.Parameters.AddWithValue("@p1", CmbCity.Text);
+            SqlDataReader dr3 = komut3.ExecuteReader();
+            while (dr3.Read())
+            {
+                CmbHospital.Items.Add(dr3[0]);
+            }
+            bgl.baglanti().Close();
+        }
+
+        private void CmbHospital_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TimerValue = MaxLimit;
+
+            CmbBrans.Items.Clear();
+            SqlCommand komut2 = new SqlCommand("Select BranchName from Tbl_Branch", bgl.baglanti());
+            SqlDataReader dr2 = komut2.ExecuteReader();
+            while (dr2.Read())
+            {
+                CmbBrans.Items.Add(dr2[0]);
+            }
+            bgl.baglanti().Close();
         }
     }
 }

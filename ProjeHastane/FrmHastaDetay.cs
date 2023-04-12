@@ -76,7 +76,7 @@ namespace ProjeHastane
             TimerValue = MaxLimit;
 
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from Tbl_Appointment where AppointmentBranch='" + CmbBrans.Text + "' AND AppointmentDoctor='" + CmbDoktor.Text + "' and AppointmentState=0", bgl.baglanti());
+            SqlDataAdapter da = new SqlDataAdapter("Select * from Tbl_Appointment where AppointmentBranch=N'" + CmbBrans.Text + "' AND AppointmentDoctor=N'" + CmbDoktor.Text + "' AND HospitalName=N'" + CmbHospital.Text + "' AND CityName=N'" + CmbCity.Text + "' and AppointmentState=0", bgl.baglanti());
             da.Fill(dt);
             dataGridView2.DataSource = dt;
         }
@@ -103,7 +103,7 @@ namespace ProjeHastane
         {
             TimerValue = MaxLimit;
 
-            SqlCommand komut = new SqlCommand("update Tbl_Appointment set AppointmentState=1,PatientTC=@p1,PatientComplaint=@p2 where Appointmentid=@p3", bgl.baglanti());
+            SqlCommand komut = new SqlCommand("update Tbl_Appointment set AppointmentState=1,PatientTC=@p1,PatientComplaint=@p2, where Appointmentid=@p3", bgl.baglanti());
             komut.Parameters.AddWithValue("@p1", LblTC.Text);
             komut.Parameters.AddWithValue("@p2", RchSikayet.Text);
             komut.Parameters.AddWithValue("@p3", Txtid.Text);
@@ -178,5 +178,14 @@ namespace ProjeHastane
             }
         }
 
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

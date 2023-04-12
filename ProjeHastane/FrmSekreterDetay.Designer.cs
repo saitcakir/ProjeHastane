@@ -41,8 +41,11 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.CmbHospital = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.CmbCity = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.BntKaydet = new System.Windows.Forms.Button();
-            this.ChkDurum = new System.Windows.Forms.CheckBox();
             this.MskTC = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.CmbDoktor = new System.Windows.Forms.ComboBox();
@@ -53,8 +56,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.Txtid = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -156,8 +157,11 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.CmbHospital);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.CmbCity);
+            this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.BntKaydet);
-            this.groupBox3.Controls.Add(this.ChkDurum);
             this.groupBox3.Controls.Add(this.MskTC);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.CmbDoktor);
@@ -168,8 +172,6 @@
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.Txtid);
-            this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Location = new System.Drawing.Point(348, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(320, 535);
@@ -177,9 +179,45 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Appointment Panel";
             // 
+            // CmbHospital
+            // 
+            this.CmbHospital.FormattingEnabled = true;
+            this.CmbHospital.Location = new System.Drawing.Point(102, 181);
+            this.CmbHospital.Name = "CmbHospital";
+            this.CmbHospital.Size = new System.Drawing.Size(198, 36);
+            this.CmbHospital.TabIndex = 50;
+            this.CmbHospital.SelectedIndexChanged += new System.EventHandler(this.CmbHospital_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(1, 181);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(95, 28);
+            this.label10.TabIndex = 49;
+            this.label10.Text = "Hospital:";
+            // 
+            // CmbCity
+            // 
+            this.CmbCity.FormattingEnabled = true;
+            this.CmbCity.Location = new System.Drawing.Point(102, 139);
+            this.CmbCity.Name = "CmbCity";
+            this.CmbCity.Size = new System.Drawing.Size(198, 36);
+            this.CmbCity.TabIndex = 48;
+            this.CmbCity.SelectedIndexChanged += new System.EventHandler(this.CmbCity_SelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(40, 139);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(56, 28);
+            this.label11.TabIndex = 47;
+            this.label11.Text = "City:";
+            // 
             // BntKaydet
             // 
-            this.BntKaydet.Location = new System.Drawing.Point(102, 346);
+            this.BntKaydet.Location = new System.Drawing.Point(103, 389);
             this.BntKaydet.Name = "BntKaydet";
             this.BntKaydet.Size = new System.Drawing.Size(199, 50);
             this.BntKaydet.TabIndex = 46;
@@ -187,19 +225,9 @@
             this.BntKaydet.UseVisualStyleBackColor = true;
             this.BntKaydet.Click += new System.EventHandler(this.BntKaydet_Click);
             // 
-            // ChkDurum
-            // 
-            this.ChkDurum.AutoSize = true;
-            this.ChkDurum.Location = new System.Drawing.Point(102, 308);
-            this.ChkDurum.Name = "ChkDurum";
-            this.ChkDurum.Size = new System.Drawing.Size(85, 32);
-            this.ChkDurum.TabIndex = 45;
-            this.ChkDurum.Text = "State";
-            this.ChkDurum.UseVisualStyleBackColor = true;
-            // 
             // MskTC
             // 
-            this.MskTC.Location = new System.Drawing.Point(102, 264);
+            this.MskTC.Location = new System.Drawing.Point(103, 307);
             this.MskTC.Mask = "00000000000";
             this.MskTC.Name = "MskTC";
             this.MskTC.Size = new System.Drawing.Size(199, 36);
@@ -209,7 +237,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(51, 264);
+            this.label9.Location = new System.Drawing.Point(52, 307);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(44, 28);
             this.label9.TabIndex = 43;
@@ -218,7 +246,7 @@
             // CmbDoktor
             // 
             this.CmbDoktor.FormattingEnabled = true;
-            this.CmbDoktor.Location = new System.Drawing.Point(101, 222);
+            this.CmbDoktor.Location = new System.Drawing.Point(102, 265);
             this.CmbDoktor.Name = "CmbDoktor";
             this.CmbDoktor.Size = new System.Drawing.Size(199, 36);
             this.CmbDoktor.TabIndex = 42;
@@ -226,7 +254,7 @@
             // CmbBrans
             // 
             this.CmbBrans.FormattingEnabled = true;
-            this.CmbBrans.Location = new System.Drawing.Point(101, 180);
+            this.CmbBrans.Location = new System.Drawing.Point(102, 223);
             this.CmbBrans.Name = "CmbBrans";
             this.CmbBrans.Size = new System.Drawing.Size(199, 36);
             this.CmbBrans.TabIndex = 41;
@@ -234,7 +262,7 @@
             // 
             // MskSaat
             // 
-            this.MskSaat.Location = new System.Drawing.Point(101, 138);
+            this.MskSaat.Location = new System.Drawing.Point(101, 97);
             this.MskSaat.Mask = "00:00";
             this.MskSaat.Name = "MskSaat";
             this.MskSaat.Size = new System.Drawing.Size(199, 36);
@@ -243,7 +271,7 @@
             // 
             // MskTarih
             // 
-            this.MskTarih.Location = new System.Drawing.Point(102, 97);
+            this.MskTarih.Location = new System.Drawing.Point(102, 56);
             this.MskTarih.Mask = "00/00/0000";
             this.MskTarih.Name = "MskTarih";
             this.MskTarih.Size = new System.Drawing.Size(199, 36);
@@ -253,7 +281,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(11, 222);
+            this.label6.Location = new System.Drawing.Point(12, 265);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 28);
             this.label6.TabIndex = 37;
@@ -262,7 +290,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 180);
+            this.label1.Location = new System.Drawing.Point(25, 223);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 28);
             this.label1.TabIndex = 31;
@@ -271,7 +299,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 141);
+            this.label2.Location = new System.Drawing.Point(29, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 28);
             this.label2.TabIndex = 29;
@@ -280,27 +308,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(34, 105);
+            this.label7.Location = new System.Drawing.Point(34, 64);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 28);
             this.label7.TabIndex = 28;
             this.label7.Text = "Date:";
-            // 
-            // Txtid
-            // 
-            this.Txtid.Location = new System.Drawing.Point(102, 55);
-            this.Txtid.Name = "Txtid";
-            this.Txtid.Size = new System.Drawing.Size(199, 36);
-            this.Txtid.TabIndex = 27;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(59, 58);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(36, 28);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "Id:";
             // 
             // groupBox4
             // 
@@ -469,13 +481,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox Txtid;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.MaskedTextBox MskSaat;
         private System.Windows.Forms.ComboBox CmbBrans;
         private System.Windows.Forms.ComboBox CmbDoktor;
         private System.Windows.Forms.Button BntKaydet;
-        private System.Windows.Forms.CheckBox ChkDurum;
         private System.Windows.Forms.MaskedTextBox MskTC;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -489,5 +498,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox CmbHospital;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox CmbCity;
+        private System.Windows.Forms.Label label11;
     }
 }

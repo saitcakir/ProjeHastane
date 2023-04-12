@@ -1,3 +1,0 @@
-VERİTABANI YOLUNU text.txt DEN ALACAK DÜZENLERSİNİZ.
-
-baglantisinif.cs te de ilgili dosya yolunu güncellersiniz.
