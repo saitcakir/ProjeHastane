@@ -93,8 +93,10 @@ namespace ProjeHastane
         {
             TimerValue = MaxLimit;
             CmbDoktor.Items.Clear();
-            SqlCommand komut3 = new SqlCommand("Select DoctorName,DoctorSurname from Tbl_Doctor where DoctorBranch=@p1", bgl.baglanti());
+            SqlCommand komut3 = new SqlCommand("Select DoctorName,DoctorSurname from Tbl_Doctor where DoctorBranch=@p1 and CityName=@p2 and HospitalName=@p3", bgl.baglanti());
             komut3.Parameters.AddWithValue("@p1", CmbBrans.Text);
+            komut3.Parameters.AddWithValue("@p2", CmbCity.Text);
+            komut3.Parameters.AddWithValue("@p3", CmbHospital.Text);
             SqlDataReader dr3 = komut3.ExecuteReader();
             while (dr3.Read())
             {
@@ -103,16 +105,7 @@ namespace ProjeHastane
             bgl.baglanti().Close();
         }
 
-        private void BtnDuyuruOlustur_Click(object sender, EventArgs e)
-        {
-            TimerValue = MaxLimit;
 
-            SqlCommand komut = new SqlCommand("Insert into Tbl_Notification (Notification) values(@d1)", bgl.baglanti());
-            komut.Parameters.AddWithValue("@d1", RclDuyuru.Text);
-            komut.ExecuteNonQuery();
-            bgl.baglanti().Close();
-            MessageBox.Show("Notification is created.");
-        }
 
         private void BtnDoktorPanel_Click(object sender, EventArgs e)
         {
@@ -136,14 +129,6 @@ namespace ProjeHastane
 
             FrmRandevuListesi frl = new FrmRandevuListesi();
             frl.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            TimerValue = MaxLimit;
-
-            FrmDuyurular frm = new FrmDuyurular();
-            frm.Show();
         }
 
         private void FrmSekreterDetay_FormClosing(object sender, FormClosingEventArgs e)
@@ -208,5 +193,7 @@ namespace ProjeHastane
             }
             bgl.baglanti().Close();
         }
+
+    
     }
 }

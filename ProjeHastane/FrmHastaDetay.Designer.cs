@@ -282,7 +282,7 @@
             this.groupBox3.Size = new System.Drawing.Size(849, 296);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Appointment History";
+            this.groupBox3.Text = "My Appointments";
             // 
             // dataGridView1
             // 
@@ -303,7 +303,7 @@
             this.groupBox4.Size = new System.Drawing.Size(849, 421);
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Active Appointments";
+            this.groupBox4.Text = "Available Appointments";
             // 
             // dataGridView2
             // 

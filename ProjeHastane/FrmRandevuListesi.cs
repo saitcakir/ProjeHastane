@@ -28,6 +28,24 @@ namespace ProjeHastane
             dataGridView1.DataSource = dt;
         }
 
- 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int id;
+
+            int secilen = dataGridView1.SelectedCells[0].RowIndex;
+            id = int.Parse(dataGridView1.Rows[secilen].Cells[0].Value.ToString());
+
+            SqlCommand komut = new SqlCommand("update Tbl_Appointment set AppointmentState=0  where Appointmentid=@p1", bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", id.ToString());
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Appointment is canceled.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+        }
     }
 }

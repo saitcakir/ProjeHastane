@@ -35,9 +35,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.LblTC = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.BtnDuyuruOlustur = new System.Windows.Forms.Button();
-            this.RclDuyuru = new System.Windows.Forms.RichTextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -46,8 +43,6 @@
             this.CmbCity = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.BntKaydet = new System.Windows.Forms.Button();
-            this.MskTC = new System.Windows.Forms.MaskedTextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.CmbDoktor = new System.Windows.Forms.ComboBox();
             this.CmbBrans = new System.Windows.Forms.ComboBox();
             this.MskSaat = new System.Windows.Forms.MaskedTextBox();
@@ -61,14 +56,12 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.BtnListe = new System.Windows.Forms.Button();
             this.BtnBransPanel = new System.Windows.Forms.Button();
             this.BtnDoktorPanel = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -126,35 +119,6 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "TC No:";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.BtnDuyuruOlustur);
-            this.groupBox2.Controls.Add(this.RclDuyuru);
-            this.groupBox2.Location = new System.Drawing.Point(12, 188);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(330, 359);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Create Notification";
-            // 
-            // BtnDuyuruOlustur
-            // 
-            this.BtnDuyuruOlustur.Location = new System.Drawing.Point(6, 291);
-            this.BtnDuyuruOlustur.Name = "BtnDuyuruOlustur";
-            this.BtnDuyuruOlustur.Size = new System.Drawing.Size(318, 50);
-            this.BtnDuyuruOlustur.TabIndex = 1;
-            this.BtnDuyuruOlustur.Text = "Create";
-            this.BtnDuyuruOlustur.UseVisualStyleBackColor = true;
-            this.BtnDuyuruOlustur.Click += new System.EventHandler(this.BtnDuyuruOlustur_Click);
-            // 
-            // RclDuyuru
-            // 
-            this.RclDuyuru.Location = new System.Drawing.Point(6, 32);
-            this.RclDuyuru.Name = "RclDuyuru";
-            this.RclDuyuru.Size = new System.Drawing.Size(318, 253);
-            this.RclDuyuru.TabIndex = 0;
-            this.RclDuyuru.Text = "";
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.CmbHospital);
@@ -162,8 +126,6 @@
             this.groupBox3.Controls.Add(this.CmbCity);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.BntKaydet);
-            this.groupBox3.Controls.Add(this.MskTC);
-            this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.CmbDoktor);
             this.groupBox3.Controls.Add(this.CmbBrans);
             this.groupBox3.Controls.Add(this.MskSaat);
@@ -217,31 +179,13 @@
             // 
             // BntKaydet
             // 
-            this.BntKaydet.Location = new System.Drawing.Point(103, 389);
+            this.BntKaydet.Location = new System.Drawing.Point(103, 336);
             this.BntKaydet.Name = "BntKaydet";
             this.BntKaydet.Size = new System.Drawing.Size(199, 50);
             this.BntKaydet.TabIndex = 46;
             this.BntKaydet.Text = "Save";
             this.BntKaydet.UseVisualStyleBackColor = true;
             this.BntKaydet.Click += new System.EventHandler(this.BntKaydet_Click);
-            // 
-            // MskTC
-            // 
-            this.MskTC.Location = new System.Drawing.Point(103, 307);
-            this.MskTC.Mask = "00000000000";
-            this.MskTC.Name = "MskTC";
-            this.MskTC.Size = new System.Drawing.Size(199, 36);
-            this.MskTC.TabIndex = 44;
-            this.MskTC.ValidatingType = typeof(int);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(52, 307);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 28);
-            this.label9.TabIndex = 43;
-            this.label9.Text = "TC:";
             // 
             // CmbDoktor
             // 
@@ -359,7 +303,6 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.button1);
             this.groupBox6.Controls.Add(this.BtnListe);
             this.groupBox6.Controls.Add(this.BtnBransPanel);
             this.groupBox6.Controls.Add(this.BtnDoktorPanel);
@@ -369,17 +312,6 @@
             this.groupBox6.TabIndex = 50;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Fast Access";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(497, 47);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(149, 50);
-            this.button1.TabIndex = 51;
-            this.button1.Text = "Notifications";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BtnListe
             // 
@@ -438,7 +370,6 @@
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -450,7 +381,6 @@
             this.Load += new System.EventHandler(this.FrmSekreterDetay_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -470,9 +400,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LblTC;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button BtnDuyuruOlustur;
-        private System.Windows.Forms.RichTextBox RclDuyuru;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -485,8 +412,6 @@
         private System.Windows.Forms.ComboBox CmbBrans;
         private System.Windows.Forms.ComboBox CmbDoktor;
         private System.Windows.Forms.Button BntKaydet;
-        private System.Windows.Forms.MaskedTextBox MskTC;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -495,7 +420,6 @@
         private System.Windows.Forms.Button BtnListe;
         private System.Windows.Forms.Button BtnBransPanel;
         private System.Windows.Forms.Button BtnDoktorPanel;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox CmbHospital;

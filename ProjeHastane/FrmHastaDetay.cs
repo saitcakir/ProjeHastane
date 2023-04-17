@@ -55,14 +55,28 @@ namespace ProjeHastane
                 CmbCity.Items.Add(dr4[0]);
             }
             bgl.baglanti().Close();
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (Convert.ToInt16(row.Cells[5].Value) == 1)
+                {
+                    row.Cells[5].Style.BackColor = System.Drawing.Color.Green;
+                }
+                if (Convert.ToInt16(row.Cells[5].Value) == 0)
+                {
+                    row.Cells[5].Style.BackColor = System.Drawing.Color.Red;
+                }
+            }
         }
 
         private void CmbBrans_SelectedIndexChanged(object sender, EventArgs e)
         {
             TimerValue = MaxLimit;
             CmbDoktor.Items.Clear();
-            SqlCommand komut3 = new SqlCommand("Select DoctorName,DoctorSurname from Tbl_Doctor where DoctorBranch=@p1", bgl.baglanti());
+            SqlCommand komut3 = new SqlCommand("Select DoctorName,DoctorSurname from Tbl_Doctor where DoctorBranch=@p1 and CityName=@p2 and HospitalName=@p3", bgl.baglanti());
             komut3.Parameters.AddWithValue("@p1", CmbBrans.Text);
+            komut3.Parameters.AddWithValue("@p2", CmbCity.Text);
+            komut3.Parameters.AddWithValue("@p3", CmbHospital.Text);
             SqlDataReader dr3 = komut3.ExecuteReader();
             while (dr3.Read())
             {
@@ -76,9 +90,18 @@ namespace ProjeHastane
             TimerValue = MaxLimit;
 
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from Tbl_Appointment where AppointmentBranch=N'" + CmbBrans.Text + "' AND AppointmentDoctor=N'" + CmbDoktor.Text + "' AND HospitalName=N'" + CmbHospital.Text + "' AND CityName=N'" + CmbCity.Text + "' and AppointmentState=0", bgl.baglanti());
+            SqlDataAdapter da = new SqlDataAdapter("Select * from Tbl_Appointment where AppointmentBranch=N'" + CmbBrans.Text + "' AND AppointmentDoctor=N'" + CmbDoktor.Text + "' AND HospitalName=N'" + CmbHospital.Text + "' AND CityName=N'" + CmbCity.Text + "' and AppointmentState=0 and PatientTC IS NULL", bgl.baglanti());
             da.Fill(dt);
             dataGridView2.DataSource = dt;
+
+            foreach (DataGridViewRow row in dataGridView2.Rows)
+            {
+                if (Convert.ToInt16(row.Cells[5].Value) == 0)
+                {
+                    row.Cells[5].Style.BackColor = System.Drawing.Color.Green;
+                }
+
+            }
         }
 
         private void LnkBilgiDuzenle_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -103,13 +126,13 @@ namespace ProjeHastane
         {
             TimerValue = MaxLimit;
 
-            SqlCommand komut = new SqlCommand("update Tbl_Appointment set AppointmentState=1,PatientTC=@p1,PatientComplaint=@p2, where Appointmentid=@p3", bgl.baglanti());
+            SqlCommand komut = new SqlCommand("update Tbl_Appointment set AppointmentState=1,PatientTC=@p1,PatientComplaint=@p2  where Appointmentid=@p3", bgl.baglanti());
             komut.Parameters.AddWithValue("@p1", LblTC.Text);
             komut.Parameters.AddWithValue("@p2", RchSikayet.Text);
             komut.Parameters.AddWithValue("@p3", Txtid.Text);
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
-            MessageBox.Show("Randevu alındı.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show("Appointment is taken.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void FrmHastaDetay_FormClosing(object sender, FormClosingEventArgs e)
@@ -170,7 +193,7 @@ namespace ProjeHastane
         {
             TimerValue--;
             label9.Text = TimerValue.ToString();
-            if (TimerValue==0)
+            if (TimerValue == 0)
             {
                 this.Hide();
                 FrmHastaGiris frm = new FrmHastaGiris();
