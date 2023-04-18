@@ -63,7 +63,7 @@
             this.MskTC.Name = "MskTC";
             this.MskTC.Size = new System.Drawing.Size(212, 36);
             this.MskTC.TabIndex = 10;
-            this.MskTC.Text = "44444444444";
+            this.MskTC.Text = "15151515151";
             this.MskTC.ValidatingType = typeof(int);
             // 
             // TxtSifre
@@ -72,7 +72,7 @@
             this.TxtSifre.Name = "TxtSifre";
             this.TxtSifre.Size = new System.Drawing.Size(212, 36);
             this.TxtSifre.TabIndex = 9;
-            this.TxtSifre.Text = "55555";
+            this.TxtSifre.Text = "9";
             this.TxtSifre.UseSystemPasswordChar = true;
             // 
             // label2

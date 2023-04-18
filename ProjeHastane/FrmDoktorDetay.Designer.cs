@@ -39,17 +39,12 @@
             this.RchSikayet = new System.Windows.Forms.RichTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.BtnCikis = new System.Windows.Forms.Button();
-            this.BtnDuyurular = new System.Windows.Forms.Button();
-            this.BtnGuncelle = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -106,7 +101,7 @@
             this.groupBox2.Controls.Add(this.RchSikayet);
             this.groupBox2.Location = new System.Drawing.Point(12, 141);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(437, 247);
+            this.groupBox2.Size = new System.Drawing.Size(437, 402);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Appointment Details";
@@ -115,7 +110,7 @@
             // 
             this.RchSikayet.Location = new System.Drawing.Point(6, 35);
             this.RchSikayet.Name = "RchSikayet";
-            this.RchSikayet.Size = new System.Drawing.Size(425, 199);
+            this.RchSikayet.Size = new System.Drawing.Size(425, 364);
             this.RchSikayet.TabIndex = 17;
             this.RchSikayet.Text = "";
             // 
@@ -141,48 +136,6 @@
             this.dataGridView1.TabIndex = 15;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.BtnCikis);
-            this.groupBox4.Controls.Add(this.BtnDuyurular);
-            this.groupBox4.Controls.Add(this.BtnGuncelle);
-            this.groupBox4.Location = new System.Drawing.Point(12, 394);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(437, 149);
-            this.groupBox4.TabIndex = 18;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Fast Access";
-            // 
-            // BtnCikis
-            // 
-            this.BtnCikis.Location = new System.Drawing.Point(6, 85);
-            this.BtnCikis.Name = "BtnCikis";
-            this.BtnCikis.Size = new System.Drawing.Size(425, 44);
-            this.BtnCikis.TabIndex = 21;
-            this.BtnCikis.Text = "Exit";
-            this.BtnCikis.UseVisualStyleBackColor = true;
-            this.BtnCikis.Click += new System.EventHandler(this.BtnCikis_Click);
-            // 
-            // BtnDuyurular
-            // 
-            this.BtnDuyurular.Location = new System.Drawing.Point(220, 35);
-            this.BtnDuyurular.Name = "BtnDuyurular";
-            this.BtnDuyurular.Size = new System.Drawing.Size(211, 44);
-            this.BtnDuyurular.TabIndex = 20;
-            this.BtnDuyurular.Text = "Notifications";
-            this.BtnDuyurular.UseVisualStyleBackColor = true;
-            this.BtnDuyurular.Click += new System.EventHandler(this.BtnDuyurular_Click);
-            // 
-            // BtnGuncelle
-            // 
-            this.BtnGuncelle.Location = new System.Drawing.Point(6, 35);
-            this.BtnGuncelle.Name = "BtnGuncelle";
-            this.BtnGuncelle.Size = new System.Drawing.Size(213, 44);
-            this.BtnGuncelle.TabIndex = 19;
-            this.BtnGuncelle.Text = "Info Edit";
-            this.BtnGuncelle.UseVisualStyleBackColor = true;
-            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -203,7 +156,6 @@
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(1394, 567);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -220,7 +172,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,10 +188,6 @@
         private System.Windows.Forms.RichTextBox RchSikayet;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button BtnCikis;
-        private System.Windows.Forms.Button BtnDuyurular;
-        private System.Windows.Forms.Button BtnGuncelle;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;
     }

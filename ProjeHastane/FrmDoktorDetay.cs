@@ -89,7 +89,7 @@ namespace ProjeHastane
                 if (result == DialogResult.Yes)
                 {
                     this.Hide();
-                    FrmSekreterGiris frd = new FrmSekreterGiris();
+                    FrmDoktorGiris frd = new FrmDoktorGiris();
                     frd.Show();
                 }
                 else

@@ -43,7 +43,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.Txtid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.LnkBilgiDuzenle = new System.Windows.Forms.LinkLabel();
             this.BtnRandevu = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.CmbDoktor = new System.Windows.Forms.ComboBox();
@@ -122,7 +121,6 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.Txtid);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.LnkBilgiDuzenle);
             this.groupBox2.Controls.Add(this.BtnRandevu);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.CmbDoktor);
@@ -140,7 +138,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(151, 431);
+            this.label9.Location = new System.Drawing.Point(6, 442);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(101, 28);
             this.label9.TabIndex = 19;
@@ -200,16 +198,6 @@
             this.label1.Size = new System.Drawing.Size(36, 28);
             this.label1.TabIndex = 19;
             this.label1.Text = "Id:";
-            // 
-            // LnkBilgiDuzenle
-            // 
-            this.LnkBilgiDuzenle.Location = new System.Drawing.Point(6, 417);
-            this.LnkBilgiDuzenle.Name = "LnkBilgiDuzenle";
-            this.LnkBilgiDuzenle.Size = new System.Drawing.Size(211, 28);
-            this.LnkBilgiDuzenle.TabIndex = 0;
-            this.LnkBilgiDuzenle.TabStop = true;
-            this.LnkBilgiDuzenle.Text = "Edit Info";
-            this.LnkBilgiDuzenle.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LnkBilgiDuzenle_LinkClicked);
             // 
             // BtnRandevu
             // 
@@ -373,7 +361,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.LinkLabel LnkBilgiDuzenle;
         private System.Windows.Forms.TextBox Txtid;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox CmbHospital;

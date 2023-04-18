@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Xml.Linq;
 
 namespace ProjeHastane
 {
@@ -22,7 +24,7 @@ namespace ProjeHastane
         public string tc;
 
         sqlbaglantisi bgl = new sqlbaglantisi();
-        private void FrmHastaDetay_Load(object sender, EventArgs e)
+        private async void FrmHastaDetay_Load(object sender, EventArgs e)
         {
             TimerValue = MaxLimit;
             timer1.Enabled = true;
@@ -40,11 +42,7 @@ namespace ProjeHastane
             }
             bgl.baglanti().Close();
 
-            //Randevu Geçmiş
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from Tbl_Appointment where PatientTC=" + tc, bgl.baglanti());
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
+            getdatagridview1();
 
             //Şehir Çekme
 
@@ -67,6 +65,44 @@ namespace ProjeHastane
                     row.Cells[5].Style.BackColor = System.Drawing.Color.Red;
                 }
             }
+
+            //Randevu iptal Çekme
+            await Task.Delay(3000);
+            SqlCommand komut5 = new SqlCommand("Select * from Tbl_Appointment where AppointmentState=0 and PatientTC=" + tc + " and  AppointmentNotification IS NULL ", bgl.baglanti());
+            SqlDataReader dr5 = komut5.ExecuteReader();
+            string notid = "";
+            if (dr5.HasRows)
+            {
+                string patientNotification = $"There are some appointments canceled. \n Related Appointmnet Id(s):\n";
+                int flag = 0;
+                while (dr5.Read())
+                {
+                    if (flag == 0)
+                    {
+                        flag = 1;
+                    }
+                    else
+                    {
+                        notid += ",";
+                    }
+                    patientNotification += dr5[0] + "\n";
+                    notid += dr5[0];
+                }
+                MessageBox.Show(patientNotification);
+                SqlCommand komut6 = new SqlCommand("update Tbl_Appointment set AppointmentNotification=1 where Appointmentid  in (" + notid + ")", bgl.baglanti());
+                komut6.ExecuteNonQuery();
+                bgl.baglanti().Close();
+                getdatagridview1();       
+            }
+        }
+
+        public void getdatagridview1()
+        {
+            //Randevu Geçmiş
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("Select * from Tbl_Appointment where PatientTC=" + tc, bgl.baglanti());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
         }
 
         private void CmbBrans_SelectedIndexChanged(object sender, EventArgs e)
@@ -88,11 +124,7 @@ namespace ProjeHastane
         private void CmbDoktor_SelectedIndexChanged(object sender, EventArgs e)
         {
             TimerValue = MaxLimit;
-
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from Tbl_Appointment where AppointmentBranch=N'" + CmbBrans.Text + "' AND AppointmentDoctor=N'" + CmbDoktor.Text + "' AND HospitalName=N'" + CmbHospital.Text + "' AND CityName=N'" + CmbCity.Text + "' and AppointmentState=0 and PatientTC IS NULL", bgl.baglanti());
-            da.Fill(dt);
-            dataGridView2.DataSource = dt;
+            getdatagridview2();
 
             foreach (DataGridViewRow row in dataGridView2.Rows)
             {
@@ -102,6 +134,14 @@ namespace ProjeHastane
                 }
 
             }
+        }
+
+        private void getdatagridview2()
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("Select * from Tbl_Appointment where AppointmentBranch=N'" + CmbBrans.Text + "' AND AppointmentDoctor=N'" + CmbDoktor.Text + "' AND HospitalName=N'" + CmbHospital.Text + "' AND CityName=N'" + CmbCity.Text + "' and AppointmentState=0 and PatientTC IS NULL", bgl.baglanti());
+            da.Fill(dt);
+            dataGridView2.DataSource = dt;
         }
 
         private void LnkBilgiDuzenle_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -133,6 +173,8 @@ namespace ProjeHastane
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
             MessageBox.Show("Appointment is taken.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            getdatagridview2();
+            getdatagridview1();
         }
 
         private void FrmHastaDetay_FormClosing(object sender, FormClosingEventArgs e)
