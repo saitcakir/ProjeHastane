@@ -1,1 +1,0 @@
-Data Source=DESKTOP-SV40UOQ\SQLEXPRESS;Initial Catalog=HastaneProje;Integrated Security=True

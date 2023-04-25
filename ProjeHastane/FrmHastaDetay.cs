@@ -156,7 +156,7 @@ namespace ProjeHastane
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            TimerValue = 20;
+            TimerValue = MaxLimit;
 
             int secilen = dataGridView2.SelectedCells[0].RowIndex;
             Txtid.Text = dataGridView2.Rows[secilen].Cells[0].Value.ToString();
@@ -175,6 +175,17 @@ namespace ProjeHastane
             MessageBox.Show("Appointment is taken.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             getdatagridview2();
             getdatagridview1();
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (Convert.ToInt16(row.Cells[5].Value) == 1)
+                {
+                    row.Cells[5].Style.BackColor = System.Drawing.Color.Green;
+                }
+                if (Convert.ToInt16(row.Cells[5].Value) == 0)
+                {
+                    row.Cells[5].Style.BackColor = System.Drawing.Color.Red;
+                }
+            }
         }
 
         private void FrmHastaDetay_FormClosing(object sender, FormClosingEventArgs e)
